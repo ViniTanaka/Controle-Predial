@@ -1,0 +1,53 @@
+create database Projeto;
+use Projeto;
+
+create table Empresa (
+Cnpj varchar(27) not null,
+Razao_social varchar(72),
+Conjunto varchar(27),
+HorarioOpen varchar(27),
+HorarioExit varChar(27),
+primary key(cnpj));
+  
+ CREATE TABLE Funcionario (
+  CPF INT NOT NULL AUTO_INCREMENT,
+  Nome VARCHAR(45),
+  Nascimento VARCHAR(45) ,
+  HorarioEntrada VARCHAR(45)  ,
+  HorarioSaida VARCHAR(45)  ,
+  RAZAO_SOCIAL VARCHAR(72),
+  PRIMARY KEY (CPF)
+
+);
+    CREATE TABLE Conjunto (
+  ConjuntoID INT NOT NULL AUTO_INCREMENT,
+  Andares INT ,
+  Banheiros INT ,
+  ArCondicionado INT ,
+  Empresa_Cnpj VARCHAR(27) NOT NULL,
+  PRIMARY KEY (ConjuntoID),
+  CONSTRAINT fk_Conjunto_Empresa1
+    FOREIGN KEY (Empresa_Cnpj)
+    REFERENCES Empresa (Cnpj)
+	);
+    
+   CREATE TABLE Login (
+  Usuario VARCHAR(45) NOT NULL,
+  Senha VARCHAR(45) NOT NULL,
+  Funcionario_CPF INT NOT NULL,
+  PRIMARY KEY (Usuario),
+  CONSTRAINT fk_Login_Funcionario1
+    FOREIGN KEY (Funcionario_CPF)
+    REFERENCES Funcionario (CPF)
+	);
+    create table Atendente (
+    	CPF INT NOT NULL,
+  		Nome VARCHAR(45) ,
+  		sobrenome VARCHAR(45)  ,
+  		data VARCHAR(45), 
+  		PRIMARY KEY (CPF)
+    );
+    
+    select * from empresa;
+    select * from funcionario;
+    select * from atendente;
